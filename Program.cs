@@ -10,16 +10,8 @@ namespace ReadFromTextFile
             string[] lines = System.IO.File.ReadAllLines(@"C:\Users\457129\OneDrive - Jabil\Desktop\release.txt");            
 
             ReleaseInfo releaseInfo = new ReleaseInfo();
-
-            foreach (string line in lines)
-            {
-                if (line.Contains( "RELEASE"))
-                {                    
-                    releaseInfo.release = line.Replace("RELEASE:", string.Empty).Trim();                   
-                }
-                
-            }
-
+            
+            releaseInfo.release = lines[1].Replace("RELEASE:", string.Empty).Trim();
             releaseInfo.artifactory_url = lines[8];
             releaseInfo.other_version = new[] { lines[22], lines[23] };
 
